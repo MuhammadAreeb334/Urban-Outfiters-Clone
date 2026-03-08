@@ -1,12 +1,13 @@
 import React from "react";
 import Button from "../ui/Button";
+import Hero from "../../assets/hero.jpg";
 
 const HeroSection = () => {
   return (
     <section className="w-full pb-4">
       <div className="relative w-full aspect-4/5 md:aspect-21/9 overflow-hidden cursor-pointer">
         <img
-          src="https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=2000"
+          src={Hero}
           alt="Concert and Festival Shop"
           className="w-full h-full object-cover"
         />

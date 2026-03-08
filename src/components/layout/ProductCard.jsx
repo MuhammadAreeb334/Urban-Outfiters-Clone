@@ -1,9 +1,10 @@
 import { Heart } from "lucide-react";
+
 import React from "react";
 
 const ProductCard = ({ image, hoverImage, title, price }) => {
   return (
-    <div className="flex flex-col min-w-[200px] md:min-w-[250px]">
+    <div className="flex flex-col min-w-[250px]">
       <div className="relative overflow-hidden aspect-[3/4] bg-gray-100 hover:[&>.hover-img]:opacity-100 hover:[&>.main-img]:opacity-0 hover:[&>.heart]:opacity-100 hover:[&>.quick]:opacity-80 hover:[&>.quick]:translate-y-0">
         <img
           src={image}
