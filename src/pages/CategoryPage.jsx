@@ -7,6 +7,9 @@ import {
   ChevronRight,
   ChevronLeft,
 } from "lucide-react";
+import { categoryNames } from "../data/categoryNames.js";
+import { products } from "../data/products.js";
+import ProductCard from "../components/layout/ProductCard.jsx";
 
 const CategoryPage = () => {
   const { categoryName } = useParams();
@@ -19,8 +22,12 @@ const CategoryPage = () => {
   const handleNext = () =>
     setCurrentPage((prev) => Math.min(prev + 1, totalPages));
 
-  const slug = categoryName?.toLowerCase().replace("'", "") || "new";
+  const slug = categoryName || "new";
   const pageData = categoryMetadata[slug] || categoryMetadata["new"];
+
+  const filteredProducts = products.filter(
+    (product) => product.category === slug,
+  );
 
   return (
     <div className="mx-auto px-12 py-8">
@@ -41,13 +48,14 @@ const CategoryPage = () => {
             </button>
             {isOpen && (
               <div className="absolute top-full left-0 mt-2 w-40 bg-white border border-gray-200 shadow-md z-50">
-                {Object.keys(categoryMetadata).map((key) => (
-                  <div
-                    key={key}
-                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer capitalize"
+                {categoryNames.map((cat) => (
+                  <Link
+                    key={cat.slug}
+                    to={`/categories/${cat.slug}`}
+                    className="block px-4 py-2 hover:bg-gray-100"
                   >
-                    {key}
-                  </div>
+                    {cat.name}
+                  </Link>
                 ))}
               </div>
             )}
@@ -102,9 +110,14 @@ const CategoryPage = () => {
         ))}
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-        {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-          <div key={item} className="aspect-[3/4] bg-gray-100 animate-pulse" />
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+        {filteredProducts.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            showSwatches={true}
+            showSale={true}
+          />
         ))}
       </div>
     </div>

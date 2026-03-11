@@ -1,7 +1,5 @@
 import React from "react";
 import Button from "../ui/Button";
-import womenShorts from "../../assets/womenShorts.mp4";
-import menShorts from "../../assets/menShorts.jpg";
 
 const SplitBanner = () => {
   return (

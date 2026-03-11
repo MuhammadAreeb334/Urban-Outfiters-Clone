@@ -13,24 +13,11 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { categoryNames } from "../../data/categoryNames";
 
 const Header = () => {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const categories = [
-    "New",
-    "Women's",
-    "Men's",
-    "Shoes",
-    "Accessories",
-    "Home",
-    "Music",
-    "Beauty + Wellness",
-    "Gifts",
-    "Vintage + ReMade",
-    "Brands",
-  ];
 
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -158,18 +145,20 @@ const Header = () => {
 
         <nav className="hidden lg:block px-8 py-5 border-y border-gray-200">
           <ul className="flex items-center gap-8 text-[13px] text-gray-900 font-normal no-scrollbar whitespace-nowrap">
-            {categories.map((cat) => (
-              <li key={cat}>
+            {categoryNames.map((cat) => (
+              <li key={cat.slug}>
                 <NavLink
-                  to={`/categories/${cat.toLowerCase()}`}
+                  to={`/categories/${cat.slug}`}
                   className={({ isActive }) =>
                     `hover:border-b hover:border-gray-800 hover:text-gray-600 pb-5 transition-all ${isActive ? "border-b border-gray-800" : ""}`
                   }
                 >
-                  {cat}
+                  {cat.name}
                 </NavLink>
               </li>
             ))}
+
+            {/*  */}
           </ul>
         </nav>
 
@@ -196,14 +185,15 @@ const Header = () => {
 
             <div className="flex-1 pb-20">
               <ul className="divide-y divide-gray-100">
-                {categories.map((cat) => (
-                  <li key={cat}>
+                {categoryNames.map((cat) => (
+                  <li key={cat.slug}>
                     <Link
-                      to={`/categories/${cat.toLowerCase()}`}
+                      to={`/categories/${cat.slug}`}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className="flex justify-between items-center px-6 py-4 text-[15px] font-normal text-gray-900"
                     >
-                      {cat} <ChevronRight size={18} className="text-gray-300" />
+                      {cat.name}
+                      <ChevronRight size={18} className="text-gray-300" />
                     </Link>
                   </li>
                 ))}

@@ -47,7 +47,7 @@ const ProductSlider = ({ title, products }) => {
   }, []);
 
   return (
-    <section className="px-4 md:px-16 py-12 relative">
+    <section className="px-4 md:px-16 relative">
       <div className="mb-6">
         <h2 className="text-[18px] text-gray-800 mb-3">{title}</h2>
         <div className="h-[1px] bg-gray-300"></div>
@@ -76,10 +76,9 @@ const ProductSlider = ({ title, products }) => {
         {products.map((product) => (
           <ProductCard
             key={product.id}
-            image={product.images.main}
-            hoverImage={product.images.hover}
-            title={product.title}
-            price={product.price}
+            product={product}
+            showSwatches={false}
+            showSale={false}
           />
         ))}
       </div>
