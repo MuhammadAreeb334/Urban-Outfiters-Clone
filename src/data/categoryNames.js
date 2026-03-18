@@ -5,9 +5,9 @@ export const categoryNames = [
   { name: "Shoes", slug: "shoes" },
   { name: "Accessories", slug: "accessories" },
   { name: "Home", slug: "home" },
-  { name: "Music", slug: "music" },
+  // { name: "Music", slug: "music" },
   { name: "Beauty + Wellness", slug: "beauty-wellness" },
-  { name: "Gifts", slug: "gifts" },
-  { name: "Vintage + ReMade", slug: "vintage-remade" },
+  // { name: "Gifts", slug: "gifts" },
+  // { name: "Vintage + ReMade", slug: "vintage-remade" },
   { name: "Brands", slug: "brands" },
 ];

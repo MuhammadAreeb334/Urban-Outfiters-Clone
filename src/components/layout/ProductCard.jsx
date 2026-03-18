@@ -1,5 +1,6 @@
 import { Heart } from "lucide-react";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ product, showSwatches = true, showSale = true }) => {
   if (!product) return null;
@@ -7,9 +8,14 @@ const ProductCard = ({ product, showSwatches = true, showSale = true }) => {
   const [selectedColor, setSelectedColor] = useState(
     product.colors?.[0] || null,
   );
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/product/${product.id}`)
+  }
 
   return (
-    <div className="flex flex-col min-w-[250px] group">
+    <div onClick={handleClick} className="flex flex-col min-w-[250px] group">
       <div className="relative overflow-hidden aspect-[3/4] bg-gray-100">
         <img
           src={selectedColor?.main}

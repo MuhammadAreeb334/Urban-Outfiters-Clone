@@ -15,13 +15,11 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
 
-        {/* Dynamic Category Route for the Main Nav (Women's, Men's, etc.) */}
         <Route
           path="categories/:categoryName"
           element={<CategoryPageWrapper />}
         />
 
-        {/* Specific Sale Route (often styled differently) */}
         <Route path="sale" element={<CategoryPage />} />
 
         <Route path="product/:id" element={<ProductDetail />} />
