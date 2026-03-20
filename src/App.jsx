@@ -3,11 +3,8 @@ import Layout from "./components/layout/Layout";
 import Home from "./pages/Home";
 import CategoryPage from "./pages/CategoryPage";
 import CategoryPageWrapper from "./components/layout/CategoryPageWrapper";
-
-const ProductDetail = () => (
-  <div className="p-20 text-center">Product Detail View</div>
-);
-const Cart = () => <div className="p-20 text-center">Shopping Bag</div>;
+import ProductDetail from "./pages/ProductDetail";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
